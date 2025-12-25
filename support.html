@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Cage - 지원 페이지</title>
+    <title data-i18n="langName">Color Cage - Support</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    <script src="translations.js"></script>
     <style>
         * {
             margin: 0;
@@ -158,35 +159,46 @@
             50% { transform: translateY(-10px); }
         }
         
-        .lang-switch {
-            text-align: right;
-            margin-bottom: 20px;
-        }
-        
-        .lang-switch a {
-            color: #94a3b8;
-            text-decoration: none;
-            padding: 5px 10px;
-            border: 1px solid #475569;
-            border-radius: 6px;
+        .lang-switch { text-align: right; margin-bottom: 25px; }
+        .lang-switch select {
+            background: rgba(255, 255, 255, 0.1);
+            color: #f0f4f8;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 12px;
+            border-radius: 8px;
             font-size: 0.9rem;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.2s;
         }
+        .lang-switch select:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #3dd68c;
+        }
+        .lang-switch select option {
+            background: #020617;
+            color: #f0f4f8;
+        }
+        html[dir="rtl"] .lang-switch { text-align: left; }
         
         .lang-switch a:hover {
             background: rgba(255,255,255,0.1);
         }
     </style>
 </head>
-<body>
+<body onload="i18n('support')">
     <div class="container">
         <div class="lang-switch">
-            <a href="support_en.html">English</a>
+            <select id="langSelect" onchange="changeLang(this.value)">
+                <option value="ko">한국어</option>
+                <option value="en">English</option>
+            </select>
         </div>
         
         <header>
             <div class="app-icon"><img src="app_icon.png" alt="Color Cage" style="width: 100%; height: 100%; border-radius: 24px;"></div>
             <h1>Color Cage</h1>
-            <p class="tagline">블럭을 움직여 공을 가두는 퍼즐 게임</p>
+            <p class="tagline" data-i18n="tagline">블럭을 움직여 공을 가두는 퍼즐 게임</p>
             <div class="ball-demo">
                 <div class="ball ball-red"></div>
                 <div class="ball ball-blue"></div>
@@ -196,68 +208,68 @@
         </header>
         
         <section class="section">
-            <h2>🎯 게임 소개</h2>
-            <p>
+            <h2 data-i18n="introTitle">🎯 게임 소개</h2>
+            <p data-i18n="introDesc1">
                 Color Cage는 끊임없이 움직이는 색깔 공들을 블럭을 드래그하여 같은 색끼리 가두는 
                 전략적 퍼즐 게임입니다. 제한 시간 내에 모든 공을 색상별로 분리하여 가두면 승리합니다!
             </p>
-            <p>
+            <p data-i18n="introDesc2">
                 간단하지만 중독성 있는 게임플레이로, 누구나 쉽게 즐길 수 있으면서도 
                 높은 레벨에서는 전략적 사고가 필요합니다.
             </p>
         </section>
         
         <section class="section">
-            <h2>✨ 주요 기능</h2>
+            <h2 data-i18n="featuresTitle">✨ 주요 기능</h2>
             <div class="features">
                 <div class="feature-item">
                     <div class="icon">🧩</div>
-                    <h3>다양한 레벨</h3>
-                    <p>8개의 도전적인 스테이지</p>
+                    <h3 data-i18n="feat1Title">다양한 레벨</h3>
+                    <p data-i18n="feat1Desc">8개의 도전적인 스테이지</p>
                 </div>
                 <div class="feature-item">
                     <div class="icon">⏱️</div>
-                    <h3>시간 제한</h3>
-                    <p>긴장감 넘치는 타임어택</p>
+                    <h3 data-i18n="feat2Title">시간 제한</h3>
+                    <p data-i18n="feat2Desc">긴장감 넘치는 타임어택</p>
                 </div>
                 <div class="feature-item">
                     <div class="icon">⭐</div>
-                    <h3>별점 시스템</h3>
-                    <p>빠른 클리어로 3스타 도전</p>
+                    <h3 data-i18n="feat3Title">별점 시스템</h3>
+                    <p data-i18n="feat3Desc">빠른 클리어로 3스타 도전</p>
                 </div>
                 <div class="feature-item">
                     <div class="icon">📱</div>
-                    <h3>직관적 조작</h3>
-                    <p>터치로 블럭 드래그</p>
+                    <h3 data-i18n="feat4Title">직관적 조작</h3>
+                    <p data-i18n="feat4Desc">터치로 블럭 드래그</p>
                 </div>
             </div>
         </section>
         
         <section class="section">
-            <h2>📖 게임 방법</h2>
-            <p>1. 화면의 블럭을 터치하여 드래그합니다.</p>
-            <p>2. 블럭을 이동시켜 움직이는 공들의 경로를 막습니다.</p>
-            <p>3. 같은 색상의 공들을 하나의 영역에 가둡니다.</p>
-            <p>4. 제한 시간 내에 모든 색상을 분리하면 레벨 클리어!</p>
+            <h2 data-i18n="howToPlayTitle">📖 게임 방법</h2>
+            <p data-i18n="step1">1. 화면의 블럭을 터치하여 드래그합니다.</p>
+            <p data-i18n="step2">2. 블럭을 이동시켜 움직이는 공들의 경로를 막습니다.</p>
+            <p data-i18n="step3">3. 같은 색상의 공들을 하나의 영역에 가둡니다.</p>
+            <p data-i18n="step4">4. 제한 시간 내에 모든 색상을 분리하면 레벨 클리어!</p>
         </section>
         
         <section class="section">
-            <h2>📞 고객 지원</h2>
+            <h2 data-i18n="contactTitle">📞 고객 지원</h2>
             <div class="contact-info">
-                <p><strong>문의 이메일:</strong> <a href="mailto:0515cym@naver.com">0515cym@naver.com</a></p>
-                <p><strong>개발사:</strong> HUNIMI</p>
-                <p>게임 관련 문의, 버그 신고, 제안 사항은 위 이메일로 연락 부탁드립니다.</p>
-                <p>영업일 기준 1-2일 내에 답변 드리겠습니다.</p>
+                <p><strong data-i18n="contactEmail">문의 이메일:</strong> <a href="mailto:0515cym@naver.com">0515cym@naver.com</a></p>
+                <p><strong data-i18n="developer">개발사:</strong> HUNIMI</p>
+                <p data-i18n="contactDesc1">게임 관련 문의, 버그 신고, 제안 사항은 위 이메일로 연락 부탁드립니다.</p>
+                <p data-i18n="contactDesc2">영업일 기준 1-2일 내에 답변 드리겠습니다.</p>
             </div>
         </section>
         
         <section class="section">
-            <h2>🔒 개인정보 처리방침</h2>
-            <p>
+            <h2 data-i18n="privacyBriefTitle">🔒 개인정보 처리방침</h2>
+            <p data-i18n="privacyBriefDesc1">
                 Color Cage는 사용자의 개인정보를 수집하지 않습니다. 
                 게임 진행 데이터는 사용자의 기기에만 저장되며, 외부 서버로 전송되지 않습니다.
             </p>
-            <p>
+            <p data-i18n="privacyBriefDesc2">
                 본 앱은 Google AdMob을 통한 광고를 표시합니다. 
                 광고 서비스와 관련된 데이터 처리는 Google의 개인정보처리방침을 따릅니다.
             </p>
