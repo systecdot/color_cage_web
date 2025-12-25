@@ -629,19 +629,19 @@ const translations = {
 };
 
 const languages = [
-    { code: 'ko', name: '한국어' },
     { code: 'en', name: 'English' },
-    { code: 'ja', name: '日本語' },
-    { code: 'zh', name: '简体中文' },
-    { code: 'de', name: 'Deutsch' },
-    { code: 'fr', name: 'Français' },
-    { code: 'es', name: 'Español' },
     { code: 'ar', name: 'العربية' },
+    { code: 'de', name: 'Deutsch' },
+    { code: 'es', name: 'Español' },
+    { code: 'fr', name: 'Français' },
     { code: 'it', name: 'Italiano' },
+    { code: 'ja', name: '日本語' },
+    { code: 'ko', name: '한국어' },
     { code: 'pt', name: 'Português' },
     { code: 'ru', name: 'Русский' },
     { code: 'th', name: 'ไทย' },
-    { code: 'vi', name: 'Tiếng Việt' }
+    { code: 'vi', name: 'Tiếng Việt' },
+    { code: 'zh', name: '简体中文' }
 ];
 
 function i18n(page) {
@@ -649,6 +649,13 @@ function i18n(page) {
     let lang = urlParams.get('lang') || localStorage.getItem('preferredLang') || navigator.language.split('-')[0];
     
     if (!translations[lang]) lang = 'en';
+    
+    // Update language selector dropdown
+    const langSelect = document.getElementById('langSelect');
+    if (langSelect) {
+        langSelect.innerHTML = languages.map(l => `<option value="${l.code}" ${l.code === lang ? 'selected' : ''}>${l.name}</option>`).join('');
+        langSelect.value = lang;
+    }
     
 
     const elements = document.querySelectorAll('[data-i18n]');

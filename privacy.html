@@ -74,6 +74,11 @@
 </head>
 <body onload="i18n('privacy')">
     <div class="container">
+        <div class="lang-switch">
+            <select id="langSelect" onchange="changeLang(this.value)">
+                <!-- Options populated by JS -->
+            </select>
+        </div>
         
         <header>
             <h1 data-i18n="privacyTitle">🔒 개인정보처리방침</h1>
