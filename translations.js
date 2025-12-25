@@ -650,11 +650,6 @@ function i18n(page) {
     
     if (!translations[lang]) lang = 'en';
     
-    const langSelect = document.getElementById('langSelect');
-    if (langSelect) {
-        langSelect.innerHTML = languages.map(l => `<option value="${l.code}" ${l.code === lang ? 'selected' : ''}>${l.name}</option>`).join('');
-        langSelect.value = lang;
-    }
 
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(el => {
